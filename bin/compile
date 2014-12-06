@@ -4,7 +4,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_FILE=$3
 
-PROFILE_PATH="$BUILD_DIR/.profile.d/geoip.sh"
+PROFILE_DIR="$BUILD_DIR/.profile.d"
+PROFILE_PATH="$PROFILE_DIR/geoip.sh"
 set-env() {
   echo "export $1=$2" >> $PROFILE_PATH
 }
@@ -26,6 +27,9 @@ GEOLITECITY_FILE="GeoLite2-City.mmdb"
 #echo "-----> Installing Maxmind GeoIP C Library $GEOIP_VERSION"
 if [ ! -d "$CACHE_DIR/.geoip/$GEOIP_VERSION" ]; then
     mkdir -p $CACHE_DIR/.geoip/$GEOIP_VERSION
+fi
+if [ ! -d "$PROFILE_DIR" ]; then
+    mkdir -p "$PROFILE_DIR"
 fi
 
 cd $CACHE_DIR/.geoip/$GEOIP_VERSION
