@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 # always install
+echo "MaxMind GeoIP Lite GeoIP2"
 exit 0
